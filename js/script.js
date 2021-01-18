@@ -6,13 +6,13 @@
 //    oggetto studente inserendo nell’ordine: nome, cognome e età.      ---DONE
 
 // 1
-var students={
+var student={
     'name': 'John',
     'lastname': 'Wisley',
     'age': '25'
 };
-for(key in students){
-    console.log(key + ': ' + students[key])
+for(key in student){
+    console.log(key + ': ' + student[key])
 };
 
 // 2
@@ -45,12 +45,44 @@ for(var x=0; x<studentsObjects.length; x++) {
 };
 
 // 3
+function isNumValid(num,min,max){
+    if(isNaN(num)){
+        return false
+    }
+    if(num<min || num>max){
+        return false
+    }
+    return true
+};
+function isValid(word){
+    if(!isNaN(word)){
+        return false
+    }
+    if(word===''){
+        return false
+    }
+    return true
+};
 var newStudent={};
+var minAge=6;
+var maxAge=30;
 newStudent.name=prompt('Inserisci il nome del nuovo studente:');
+while(!isValid(newStudent.name)){
+    alert('Inserisci un nome valido.');
+    newStudent.name=prompt('Inserisci il nome del nuovo studente:')
+};
 newStudent.name = newStudent.name[0].toUpperCase() + newStudent.name.slice(1).toLowerCase();
 newStudent.surname=prompt('Inserisci il cognome del nuovo studente:');
+while(!isValid(newStudent.surname)){
+    alert('Inserisci un cognome valido');
+    newStudent.surname=prompt('Inserisci il cognome del nuovo studente:')
+}
 newStudent.surname = newStudent.surname[0].toUpperCase() + newStudent.surname.slice(1).toLowerCase();
 newStudent.age=prompt('Inserisci l\'età del nuovo studente:');
+while(!isNumValid(newStudent.age,minAge,maxAge)){
+    alert('Inserisci un numero corretto, tenendo conto del limite di età 6-30');
+    newStudent.age=prompt('Inserisci l\'età del nuovo studente:');
+}
 newStudent.age = newStudent.age[0].toUpperCase() + newStudent.age.slice(1).toLowerCase();
 studentsObjects.push(newStudent);
 console.log(studentsObjects)
