@@ -1,9 +1,9 @@
 // 1. Creare un oggetto che descriva uno studente con le seguenti proprietà:
-//    nome, cognome e età. Stampare a schermo attraverso il for tutte le proprietà.    DONE
+//    nome, cognome e età. Stampare a schermo attraverso il for tutte le proprietà.    ---DONE
 // 2. Creare un array di oggetti di studenti. Ciclare su tutti gli studenti
-//    e stampare per ognuno nome e cognome    DONE
+//    e stampare per ognuno nome e cognome    ---DONE
 // 3. Dare la possibilità all’utente attraverso 3 prompt di aggiungere un nuovo
-//    oggetto studente inserendo nell’ordine: nome, cognome e età.      DONE
+//    oggetto studente inserendo nell’ordine: nome, cognome e età.      ---DONE
 
 // 1
 var students={
@@ -19,32 +19,34 @@ for(key in students){
 var studentsObjects=[
     student1={
         'name': 'Brian',
-        'surname': 'Lauren'
+        'surname': 'Lauren',
+        'age': '21'
     },
     student2={
         'name': 'Lucy',
-        'surname': 'Gold'
+        'surname': 'Gold',
+        'age': '22'
     },
     student3={
         'name': 'Harold',
-        'surname': 'Light'
+        'surname': 'Light',
+        'age': '23'
     },
     student4={
         'name': 'Jennifer',
-        'surname': 'Triplehorne'
+        'surname': 'Triplehorne',
+        'age': '24'
     }
 ];
 for(var x=0; x<studentsObjects.length; x++) {
     console.log('This is the student number: ' + (x+1));
-    var allStudents = studentsObjects[x];
-    for(var key in allStudents) {
-      console.log('The ' + key + ' is: ' + allStudents[key])
-    }
+    console.log('Name: ' + studentsObjects[x].name);
+    console.log('Surname: ' + studentsObjects[x].surname)
 };
 
 // 3
 var newStudent={};
-newStudent.name=prompt('Inserisci il nome del nuovo studente:').toUpperCase();
+newStudent.name=prompt('Inserisci il nome del nuovo studente:');
 newStudent.name = newStudent.name[0].toUpperCase() + newStudent.name.slice(1).toLowerCase();
 newStudent.surname=prompt('Inserisci il cognome del nuovo studente:');
 newStudent.surname = newStudent.surname[0].toUpperCase() + newStudent.surname.slice(1).toLowerCase();
